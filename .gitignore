@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.DS_Store
+*/.DS_Store
+*.local
+# Large video files (copy manually between computers)
+assets/**/*.mp4
+assets/**/*.mov

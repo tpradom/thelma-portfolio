@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study — Thelma Prado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ─── Nav ──────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        Thelma Prado
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="cs-main">
+    <!-- Populated by JS below -->
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2026 Thelma Prado</span>
+    <span class="footer-tag">Designed &amp; built with love in Claude</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const caseStudies = {
+      'betanything': {
+        title: 'BetAnything',
+        subtitle: 'A migration case study showing how research, systems, and design quality unlocked higher traffic and engagement.',
+        tags: [],
+        year: '2024',
+        role: 'Senior UX/UI Designer',
+        duration: '9 months',
+        coverGradient: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+        video: 'assets/BetAnything/BetAnything Prototype 1.mp4',
+        auditImages: {
+          desktop: 'assets/BetAnything/Competive Audit/Findings Desktop.png',
+          mobile: 'assets/BetAnything/Competive Audit/findings Mobile.png'
+        },
+        beforeAfterImages: {
+          before: 'assets/BetAnything/before and after/before.png',
+          after: 'assets/BetAnything/before and after/after.png'
+        },
+        designImage: 'assets/BetAnything/Button.webp',
+        sections: [
+          {
+            label: 'The Challenge',
+            heading: 'From agency-led to internally owned',
+            body: `When the internal UX team was formed, the platform's strategy and direction had been defined entirely by an external agency. We inherited a complex betting platform with inconsistent interfaces, unclear ownership, and limited documentation — making it difficult to maintain consistency, meet evolving business needs, and deliver efficiently across product areas.<br><br>The goal: establish a structured UX process and migrate the platform to an internally owned experience.`
+          },
+          {
+            label: 'Research',
+            heading: 'Understanding the landscape before redesigning it',
+            body: `The process started with a competitive audit and early discovery work to identify gaps in the existing experience and benchmark against industry standards. Research informed the information architecture decisions that followed, ensuring the redesign was grounded in user needs, not assumptions.`
+          },
+          {
+            label: 'Design',
+            heading: 'End-to-end, hands-on, cross-functional',
+            body: `As a senior designer, I worked across all UX phases: wireframing, prototyping, usability testing, and iteration — in close collaboration with product managers, engineers, content specialists, and stakeholders. Collaboration was continuous, built around workshops, design reviews, and shared feedback loops rather than handoffs.<br><br>The work also included evolving the design system, which became the foundation for consistency across the entire product suite.`
+          },
+          {
+            label: 'Outcome',
+            heading: 'UX earning its seat at the table',
+            body: `The redesigned platform launched on July 29 and the numbers spoke immediately. On launch day alone, active users jumped to <span class="cs-num">13K</span> (up from <span class="cs-num">9.6K</span> the day before) and new users surged to <span class="cs-num">26K</span>, with average engagement time reaching <span class="cs-num">6m 07s</span> — nearly triple the pre-launch baseline.<br><br>By the end of the first week, the platform sustained <span class="cs-num">9.7K to 10K</span> daily active users and continued attracting thousands of new visitors, signaling strong initial retention.<br><br>Beyond traffic, the migration marked a turning point: UX moved from agency-led strategy to in-house ownership, with design becoming a trusted driver of product decisions across the organization.<br><br><em>Due to confidentiality agreements, certain details have been modified or omitted.</em>`
+          }
+        ],
+        meta: { Role: 'Senior UX/UI Designer', Duration: '9 months', Year: '2024', 'Live site': 'https://betanysports.eu' },
+        prev: null,
+        next: { id: 'atlas-health', title: 'Atlas Health' }
+      },
+
+      'atlas-health': {
+        title: 'Atlas Health',
+        subtitle: 'Telehealth platform connecting patients with specialists across 14 countries.',
+        tags: ['Web App', 'Healthcare'],
+        year: '2023',
+        role: 'Senior UX Designer',
+        duration: '11 months',
+        coverGradient: 'linear-gradient(135deg, #064e3b 0%, #059669 50%, #6ee7b7 100%)',
+        sections: [
+          {
+            label: 'The Challenge',
+            heading: 'Healthcare across borders',
+            body: `Atlas Health wanted to give patients in Latin America access to specialist physicians in the US and Europe via video consultation. The hard part: designing for wildly different connectivity speeds, languages, literacy levels, and regulatory requirements across 14 countries.`
+          },
+          {
+            label: 'Research',
+            heading: 'Designing for the edge case as the main case',
+            body: `I traveled to Bogotá and Mexico City for contextual research. Many users were accessing the platform on entry-level Android phones with inconsistent 3G. The booking flow had to work on a 200ms connection with a 4" screen — and feel trustworthy enough to enter payment details.`
+          },
+          {
+            label: 'Design',
+            heading: 'Trust as the primary design material',
+            body: `The patient onboarding flow was redesigned around progressive disclosure — collecting only what was needed at each step. A "clinic-feel" visual language (clean whites, considered typography, no stock photos) and real physician profiles built trust before the first consultation.<br><br>We also built an async consultation mode for users who couldn't commit to a live video slot — photos, voice notes, and structured symptom forms reviewed within 24h.`
+          },
+          {
+            label: 'Outcome',
+            heading: 'Access delivered',
+            body: `Booking completion rate improved from 41% to 79%. Async consultations now account for 38% of all appointments. Atlas Health expanded from 6 to 14 countries in the 9 months following launch, and was acquired in 2024.`
+          }
+        ],
+        meta: { Role: 'Senior UX Designer', Duration: '11 months', Year: '2023' },
+        prev: { id: 'betanything', title: 'BetAnything' },
+        next: { id: 'reading-reimagined', title: 'Reading Reimagined' }
+      },
+
+      'reading-reimagined': {
+        title: 'Reading Reimagined',
+        subtitle: 'A speculative redesign of the digital reading experience, focused on focus.',
+        tags: ['Concept', 'Editorial'],
+        year: '2023',
+        role: 'Concept / Solo Project',
+        duration: '6 weeks',
+        coverGradient: 'linear-gradient(135deg, #1c1917 0%, #44403c 50%, #a8a29e 100%)',
+        sections: [
+          {
+            label: 'The Brief',
+            heading: 'What if your ebook reader respected your attention?',
+            body: `This is a self-initiated concept project exploring one question: what would a reading app look like if it was designed to protect focus rather than maximize engagement?<br><br>Existing e-readers (Kindle, Apple Books) bury readers in social features, home-feed algorithms, and buy-prompts. I wanted to design the opposite — an app that disappears when you're in it.`
+          },
+          {
+            label: 'Exploration',
+            heading: 'Radical reduction',
+            body: `I benchmarked 8 reading apps and identified 47 UI elements visible during active reading. My hypothesis: none of them need to be there. The concept explores: typography-first layout, a "no-chrome" reading mode that hides all UI for 30-minute intervals, ambient sound integration, and a "daily page" habit tracker that rewards streaks without notifications.`
+          },
+          {
+            label: 'Design',
+            heading: 'Typography as interface',
+            body: `The reading view uses only 3 variables: font size, line height, and margin. No status bar, no chapter progress bar, no social highlights. A subtle word-count indicator at the bottom edge fades in only on hover. Turning pages is a swipe with a paper-like resistance curve.<br><br>The home screen shows only your current book and a 7-day reading streak — nothing else.`
+          },
+          {
+            label: 'Reflection',
+            heading: 'What this taught me',
+            body: `Speculative projects are where I do my sharpest thinking. Removing business constraints forces the design question to its essence. The "reading resistance" interaction pattern from this project later informed the async consultation timer in Atlas Health.`
+          }
+        ],
+        meta: { Type: 'Concept / Speculative', Duration: '6 weeks', Year: '2023' },
+        prev: { id: 'atlas-health', title: 'Atlas Health' },
+        next: { id: 'verde-commerce', title: 'Verde Commerce' }
+      },
+
+      'verde-commerce': {
+        title: 'Verde Commerce',
+        subtitle: 'B2B marketplace platform for sustainable goods. From 0 to 12k merchants in 18 months.',
+        tags: ['B2B', 'Web App', 'E-commerce'],
+        year: '2022',
+        role: 'Lead UX/UI Designer',
+        duration: '14 months',
+        coverGradient: 'linear-gradient(135deg, #14532d 0%, #16a34a 50%, #86efac 100%)',
+        sections: [
+          {
+            label: 'The Challenge',
+            heading: 'Building a marketplace from nothing',
+            body: `Verde Commerce came to me pre-launch with a Figma file, a tech team, and 6 months to hit their Series A milestones. They needed a B2B marketplace where sustainable goods suppliers could list products and retailers could discover and order them at wholesale.<br><br>The two-sided marketplace problem: design for sellers and buyers simultaneously, with fundamentally different mental models and workflows.`
+          },
+          {
+            label: 'Research',
+            heading: 'Two audiences, one surface',
+            body: `I ran 16 interviews split evenly between sustainable brands (sellers) and procurement managers at mid-size retailers (buyers). Sellers cared most about control and trust signals — they didn't want their products next to competitors they didn't respect. Buyers cared about discovery, minimum order quantities, and payment terms.<br><br>The friction point: neither side would join a platform the other hadn't proven. Classic cold-start problem.`
+          },
+          {
+            label: 'Design',
+            heading: 'Curated first, open later',
+            body: `The solution: launch as an invitation-only curated marketplace, not an open one. This let us design the seller onboarding around quality signals (certifications, story, photography standards) which then made the buyer experience feel premium rather than generic.<br><br>The supplier dashboard put inventory and order management front and center. The buyer side featured category-based discovery with filtering by certification (Fair Trade, B-Corp, Carbon Neutral), region, and minimum order.`
+          },
+          {
+            label: 'Outcome',
+            heading: '0 to 12k merchants',
+            body: `Verde launched with 180 curated suppliers. By month 18 they had opened to applications and grown to 12,000 merchants across 40 product categories. GMV hit €8M in year one. The Series A closed at €12M, with the investor deck featuring the UX as a core differentiator.`
+          }
+        ],
+        meta: { Role: 'Lead UX/UI Designer', Duration: '14 months', Year: '2022' },
+        prev: { id: 'reading-reimagined', title: 'Reading Reimagined' },
+        next: null
+      }
+    };
+
+    function renderCaseStudy(id) {
+      const cs = caseStudies[id];
+      if (!cs) {
+        document.getElementById('cs-main').innerHTML = `
+          <div style="text-align:center;padding:200px 24px">
+            <p style="color:#888;margin-bottom:24px">Case study not found.</p>
+            <a href="index.html" style="text-decoration:underline">← Back home</a>
+          </div>`;
+        return;
+      }
+
+      document.title = `${cs.title} — Thelma Prado`;
+
+      const metaItems = Object.entries(cs.meta).map(([k, v]) => `
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">${k}</div>
+          <div class="cs-meta-value">${v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
+        </div>`).join('');
+
+      const sections = cs.sections.map((s, i) => `
+        <div class="cs-section reveal${i > 0 ? ' reveal-delay-1' : ''}">
+          <div class="cs-section-label">${s.label}</div>
+          <h2>${s.heading}</h2>
+          <p>${s.body.replace(/<br><br>/g, '</p><p>')}</p>
+        </div>
+        ${i === 0 ? (
+          cs.beforeAfterImages
+            ? `<div class="cs-before-after reveal">
+                <div class="cs-ba-col">
+                  <span class="cs-ba-label">Before</span>
+                  <img src="${cs.beforeAfterImages.before}" class="cs-ba-img" alt="Before redesign">
+                </div>
+                <div class="cs-ba-col">
+                  <span class="cs-ba-label">After</span>
+                  <img src="${cs.beforeAfterImages.after}" class="cs-ba-img" alt="After redesign">
+                </div>
+               </div>`
+            : cs.video
+              ? `<div class="cs-video-block reveal"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
+              : `<div class="cs-image-block reveal">[ ${cs.title} — wireframes & research ]</div>`
+        ) : ''}
+        ${i === 1 ? (
+          cs.auditImages
+            ? `<div class="cs-audit-block reveal">
+                <img src="${cs.auditImages.desktop}" class="cs-audit-desktop" alt="Competitive audit desktop findings">
+                <img src="${cs.auditImages.mobile}" class="cs-audit-mobile" alt="Competitive audit mobile findings">
+               </div>`
+            : `<div class="cs-image-block reveal">[ ${cs.title} — design explorations ]</div>`
+        ) : ''}
+        ${i === 2 ? (
+          cs.designImage
+            ? `<div class="cs-image-block reveal"><img src="${cs.designImage}" alt="${cs.title} — design system"></div>`
+            : `<div class="cs-image-block reveal">[ ${cs.title} — design system ]</div>`
+        ) : ''}
+      `).join('');
+
+      const prevLink = cs.prev
+        ? `<a href="case-study.html#${cs.prev.id}" class="cs-nav-link">
+            <span class="cs-nav-label">← Previous</span>
+            <span class="cs-nav-title">${cs.prev.title}</span>
+           </a>`
+        : `<a href="index.html" class="cs-nav-link">
+            <span class="cs-nav-label">←</span>
+            <span class="cs-nav-title">All work</span>
+           </a>`;
+
+      const nextLink = cs.next
+        ? `<a href="case-study.html#${cs.next.id}" class="cs-nav-link" style="text-align:right">
+            <span class="cs-nav-label">Next →</span>
+            <span class="cs-nav-title">${cs.next.title}</span>
+           </a>`
+        : `<a href="index.html#contact" class="cs-nav-link" style="text-align:right">
+            <span class="cs-nav-label">Interested?</span>
+            <span class="cs-nav-title">Get in touch</span>
+           </a>`;
+
+      document.getElementById('cs-main').innerHTML = `
+        <div class="cs-hero">
+          <a href="index.html#work" class="cs-back">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 8H3M7 4L3 8l4 4"/>
+            </svg>
+            All work
+          </a>
+          <p class="cs-subtitle reveal">${cs.title}</p>
+          <h2 class="cs-heading reveal reveal-delay-1">${cs.subtitle}</h2>
+          <div class="cs-meta-grid reveal reveal-delay-2">${metaItems}</div>
+        </div>
+
+        <div class="cs-cover">
+          <div class="cs-cover-img reveal" style="background:${cs.coverGradient}">
+            ${cs.video ? `<video src="${cs.video}" autoplay muted loop playsinline></video>` : ''}
+          </div>
+        </div>
+
+        <div class="cs-body">
+          ${sections}
+        </div>
+
+        <div class="cs-nav">
+          ${prevLink}
+          ${nextLink}
+        </div>
+      `;
+
+      // trigger reveal after render
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      });
+    }
+
+    const id = window.location.hash.slice(1);
+    renderCaseStudy(id);
+    window.addEventListener('hashchange', () => renderCaseStudy(window.location.hash.slice(1)));
+  </script>
+</body>
+</html>
