@@ -6,3 +6,5 @@ node_modules/
 # Large video files (copy manually between computers)
 assets/**/*.mp4
 assets/**/*.mov
+.env*
+!.env.example
