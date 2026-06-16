@@ -3,7 +3,7 @@
 
 :root {
   --black: #350000;
-  --white: #FCF7F5;
+  --white: #F9F9F9;
   --blue: #5A50FF;
   --muted: #9a8080;
   --border: #e8ddd9;
@@ -45,7 +45,7 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(252,247,245,0.92);
+  background: rgba(249,249,249,0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
@@ -397,8 +397,8 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
 
 .work-item:hover .work-arrow {
   transform: translateX(6px);
-  background: var(--black);
-  border-color: var(--black);
+  background: var(--blue);
+  border-color: var(--blue);
   color: var(--white);
 }
 
@@ -799,7 +799,7 @@ footer {
 }
 
 .cs-heading {
-  font-size: clamp(40px, 7vw, 96px);
+  font-size: clamp(36px, 6vw, 80px);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.0;

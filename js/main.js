@@ -102,7 +102,7 @@ filterBtns.forEach(btn => {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(96,165,250,${alpha})`;
+      ctx.fillStyle = `rgba(242,241,255,${alpha})`;
       ctx.fill();
     }
 
