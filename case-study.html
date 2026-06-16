@@ -234,14 +234,22 @@
           <div class="cs-meta-value">${v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
         </div>`).join('');
 
-      const sections = cs.sections.map((s, i) => `
-        <div class="cs-section reveal${i > 0 ? ' reveal-delay-1' : ''}">
-          <div class="cs-section-label">${s.label}</div>
-          <h2>${s.heading}</h2>
-          <p>${s.body.replace(/<br><br>/g, '</p><p>')}</p>
-        </div>
-        ${i === 0 ? (
-          cs.beforeAfterImages
+      const sections = cs.sections.map((s, i) => {
+        const isLast = i === cs.sections.length - 1;
+        const sectionHtml = `
+          <div class="cs-section reveal${i > 0 ? ' reveal-delay-1' : ''}">
+            <div class="cs-section-label">${s.label}</div>
+            <h2>${s.heading}</h2>
+            <p>${s.body.replace(/<br><br>/g, '</p><p>')}</p>
+          </div>`;
+
+        if (isLast) {
+          return `<div class="cs-row cs-row-full">${sectionHtml}</div>`;
+        }
+
+        let media = '';
+        if (i === 0) {
+          media = cs.beforeAfterImages
             ? `<div class="cs-ba-slider reveal">
                 <img src="${cs.beforeAfterImages.after}" class="cs-ba-img-after" alt="After redesign" draggable="false">
                 <div class="cs-ba-before-wrap">
@@ -259,22 +267,25 @@
                </div>`
             : cs.video
               ? `<div class="cs-video-block reveal"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
-              : `<div class="cs-image-block reveal">[ ${cs.title} — wireframes & research ]</div>`
-        ) : ''}
-        ${i === 1 ? (
-          cs.auditImages
+              : `<div class="cs-image-block reveal">[ ${cs.title} — wireframes &amp; research ]</div>`;
+        } else if (i === 1) {
+          media = cs.auditImages
             ? `<div class="cs-audit-block reveal">
                 <img src="${cs.auditImages.desktop}" class="cs-audit-desktop" alt="Competitive audit desktop findings">
                 <img src="${cs.auditImages.mobile}" class="cs-audit-mobile" alt="Competitive audit mobile findings">
                </div>`
-            : `<div class="cs-image-block reveal">[ ${cs.title} — design explorations ]</div>`
-        ) : ''}
-        ${i === 2 ? (
-          cs.designImage
+            : `<div class="cs-image-block reveal">[ ${cs.title} — design explorations ]</div>`;
+        } else if (i === 2) {
+          media = cs.designImage
             ? `<div class="cs-image-block reveal"><img src="${cs.designImage}" alt="${cs.title} — design system"></div>`
-            : `<div class="cs-image-block reveal">[ ${cs.title} — design system ]</div>`
-        ) : ''}
-      `).join('');
+            : `<div class="cs-image-block reveal">[ ${cs.title} — design system ]</div>`;
+        }
+
+        return `<div class="cs-row">
+          ${sectionHtml}
+          <div class="cs-row-media">${media}</div>
+        </div>`;
+      }).join('');
 
       const prevLink = cs.prev
         ? `<a href="case-study.html#${cs.prev.id}" class="cs-nav-link">
