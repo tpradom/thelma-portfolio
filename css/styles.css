@@ -115,6 +115,8 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
   max-width: none;
   width: 100%;
   margin: 0;
+  padding-left: 0;
+  padding-right: 0;
   position: relative;
   overflow: hidden;
 }
@@ -128,6 +130,9 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
 }
 
 .hero-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
   position: relative;
   z-index: 1;
 }
