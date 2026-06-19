@@ -858,35 +858,90 @@ footer {
   display: block;
 }
 
-.cs-body {
+.cs-accordion-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad) 100px;
 }
 
-.cs-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  margin-bottom: 80px;
+.cs-acc-item {
+  border-bottom: 1px solid var(--border);
+}
+.cs-acc-item:first-child { border-top: 1px solid var(--border); }
+
+.cs-acc-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: none;
+  border: none;
+  padding: 28px 0;
+  cursor: pointer;
+  text-align: left;
 }
 
-.cs-row-full {
-  grid-template-columns: 1fr;
-  max-width: 640px;
+.cs-acc-left { flex: 1; min-width: 0; }
+
+.cs-acc-heading {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin: 8px 0 0;
+  line-height: 1.2;
 }
 
-.cs-row-media { min-width: 0; }
+.cs-acc-icon {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--blue);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
 
-.cs-body > .cs-row:nth-child(even) .cs-row-media { order: -1; }
+.cs-acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-.cs-row-media .cs-ba-slider,
-.cs-row-media .cs-video-block,
-.cs-row-media .cs-audit-block,
-.cs-row-media .cs-image-block { margin: 0; }
+.cs-acc-body p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
 
-.cs-section { margin-bottom: 0; }
+.cs-acc-media-wrap {
+  position: sticky;
+  top: 100px;
+}
+
+.cs-acc-panel { display: none; }
+.cs-acc-panel.active { display: block; }
+
+.cs-outcome-chart { padding: 4px 0; }
+.cs-outcome-chart-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.cs-outcome-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 8px; }
+.cs-outcome-card { background: #f5eeeb; border-radius: 12px; padding: 16px; }
+.cs-outcome-card-meta { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--black); margin: 0 0 4px; }
+.cs-outcome-card-num { font-size: 26px; font-weight: 800; color: var(--black); margin: 0 0 2px; letter-spacing: -0.02em; }
+.cs-outcome-card-sub { font-size: 11px; color: var(--muted); margin: 0; }
+.cs-outcome-bars { margin-top: 10px; display: flex; align-items: flex-end; gap: 4px; height: 28px; }
+
+.cs-acc-panel .cs-ba-slider,
+.cs-acc-panel .cs-video-block,
+.cs-acc-panel .cs-audit-block,
+.cs-acc-panel .cs-image-block { margin: 0; }
 
 .cs-section-label {
   font-size: 11px;
@@ -1133,10 +1188,11 @@ footer {
   .about-inner { gap: 48px; }
 }
 
-/* case study rows — stack on tablet */
+/* case study accordion — stack on tablet */
 @media (max-width: 860px) {
-  .cs-row { grid-template-columns: 1fr; gap: 40px; }
-  .cs-row-full { max-width: none; }
+  .cs-accordion-wrap { grid-template-columns: 1fr; gap: 0; }
+  .cs-acc-media-wrap { position: static; padding-bottom: 60px; }
+  .cs-acc-media-wrap .cs-acc-panel { display: none !important; }
 }
 
 /* below 900px — collapse 2-col grids */
