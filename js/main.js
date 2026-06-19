@@ -98,11 +98,11 @@ filterBtns.forEach(btn => {
 
       const wave  = (Math.sin(t * 0.0007 * p.speed + p.phase) + 1) / 2;
       const r     = p.base + wave * 0.8 + p.pull * SWELL_MAX;
-      const alpha = 0.025 + wave * 0.018 + p.pull * 0.12;
+      const alpha = 0.07 + wave * 0.06 + p.pull * 0.2;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(242,241,255,${alpha})`;
+      ctx.fillStyle = `rgba(90,80,255,${alpha})`;
       ctx.fill();
     }
 
