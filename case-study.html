@@ -468,7 +468,10 @@
 
     const id = window.location.hash.slice(1);
     renderCaseStudy(id);
-    window.addEventListener('hashchange', () => renderCaseStudy(window.location.hash.slice(1)));
+    window.addEventListener('hashchange', () => {
+      renderCaseStudy(window.location.hash.slice(1));
+      window.scrollTo(0, 0);
+    });
   </script>
 </body>
 </html>
