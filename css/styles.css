@@ -1151,6 +1151,15 @@ footer {
   display: block;
 }
 
+.cs-disclaimer {
+  max-width: var(--max);
+  margin: 0 auto 48px;
+  padding: 0 var(--pad);
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
 .cs-nav {
   border-top: 1px solid var(--border);
   padding: 48px var(--pad);
