@@ -336,73 +336,53 @@
             <p class="cs-outcome-chart-label">Launch day — July 29</p>
             <div class="cs-outcome-cards">
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">Active users</p>
                 <p class="cs-outcome-card-num">13K</p>
+                <p class="cs-outcome-card-meta">Active users</p>
                 <p class="cs-outcome-card-sub">up from 9.6K</p>
-                <div class="cs-outcome-bars">
-                  <div style="flex:1;background:var(--border);border-radius:3px;height:73%"></div>
-                  <div style="flex:1;background:var(--blue);border-radius:3px;height:100%"></div>
-                </div>
               </div>
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">New users</p>
                 <p class="cs-outcome-card-num">26K</p>
+                <p class="cs-outcome-card-meta">New users</p>
                 <p class="cs-outcome-card-sub">launch day surge</p>
-                <div style="margin-top:12px;height:6px;background:var(--blue);border-radius:3px"></div>
-                <p style="font-size:11px;color:var(--blue);font-weight:600;margin:4px 0 0;text-align:right">↑ surge</p>
               </div>
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">Avg. engagement</p>
                 <p class="cs-outcome-card-num">6:07</p>
-                <p class="cs-outcome-card-sub">nearly 3× baseline</p>
-                <div class="cs-outcome-bars">
-                  <div style="flex:1;background:var(--border);border-radius:3px;height:33%"></div>
-                  <div style="flex:1;background:var(--border);border-radius:3px;height:33%"></div>
-                  <div style="flex:1;background:var(--border);border-radius:3px;height:33%"></div>
-                  <div style="flex:1;background:var(--blue);border-radius:3px;height:100%"></div>
-                </div>
+                <p class="cs-outcome-card-meta">Avg. engagement</p>
+                <p class="cs-outcome-card-sub">nearly 3x baseline</p>
               </div>
             </div>
-            <p class="cs-outcome-chart-label" style="margin-top:24px">Platform engagement after redesign</p>
+            <p class="cs-outcome-chart-label" style="margin-top:8px">Platform engagement after redesign</p>
             <div class="cs-outcome-cards">
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">Bets / player / month</p>
                 <p class="cs-outcome-card-num">250</p>
+                <p class="cs-outcome-card-meta">Bets / player / month</p>
                 <p class="cs-outcome-card-sub">high platform stickiness</p>
               </div>
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">Sessions / month</p>
                 <p class="cs-outcome-card-num">8</p>
+                <p class="cs-outcome-card-meta">Sessions / month</p>
                 <p class="cs-outcome-card-sub">users return twice a week</p>
               </div>
               <div class="cs-outcome-card">
-                <p class="cs-outcome-card-meta">Player LTV</p>
                 <p class="cs-outcome-card-num">$400</p>
+                <p class="cs-outcome-card-meta">Player LTV</p>
                 <p class="cs-outcome-card-sub">lifetime value per player</p>
               </div>
             </div>
           </div>` : '';
       });
 
-      const accItems = cs.sections.map((s, i) => `
-        <div class="cs-acc-item${i === 0 ? ' active' : ''}" data-index="${i}">
-          <button class="cs-acc-trigger">
-            <div class="cs-acc-left">
-              <span class="cs-section-label">${s.label}</span>
-              <h2 class="cs-acc-heading">${s.heading}</h2>
-            </div>
-            <span class="cs-acc-icon">${i === 0 ? '−' : '+'}</span>
-          </button>
-          <div class="cs-acc-body">
+      const sectionRows = cs.sections.map((s, i) => `
+        <div class="cs-section-row reveal">
+          <div class="cs-section-head">
+            <span class="cs-section-label">0${i + 1} / ${s.label}</span>
+          </div>
+          <div class="cs-section-body">
+            <h2 class="cs-section-heading">${s.heading}</h2>
             <p>${s.body.replace(/<br><br>/g, '</p><p>')}</p>
+            ${mediaHtmls[i] ? `<div class="cs-section-media">${mediaHtmls[i]}</div>` : ''}
           </div>
         </div>`).join('');
-
-      const accPanels = cs.sections.map((s, i) =>
-        mediaHtmls[i]
-          ? `<div class="cs-acc-panel${i === 0 ? ' active' : ''}" data-index="${i}">${mediaHtmls[i]}</div>`
-          : ''
-      ).join('');
 
       const prevLink = cs.prev
         ? `<a href="case-study.html#${cs.prev.id}" class="cs-nav-link">
@@ -447,10 +427,7 @@
           </div>
         </div>
 
-        <div class="cs-accordion-wrap">
-          <div class="cs-accordion">${accItems}</div>
-          <div class="cs-acc-media-wrap">${accPanels}</div>
-        </div>
+        <div class="cs-body-wrap">${sectionRows}</div>
 
         <div class="cs-nav">
           ${prevLink}
@@ -462,7 +439,6 @@
       requestAnimationFrame(() => {
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
         initSliders();
-        initAccordion();
       });
     }
 
