@@ -47,7 +47,7 @@
         role: 'Senior UX/UI Designer',
         duration: '9 months',
         coverGradient: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
-        video: 'assets/BetAnything/BetAnything Prototype 1.mp4',
+        cover: 'assets/BetAnything/cover.jpg',
         auditImages: {
           desktop: 'assets/BetAnything/Competive Audit/Findings Desktop.png',
           mobile: 'assets/BetAnything/Competive Audit/findings Mobile.png'
@@ -439,7 +439,11 @@
 
         <div class="cs-cover">
           <div class="cs-cover-img reveal" style="background:${cs.coverGradient}">
-            ${cs.video ? `<video src="${cs.video}" autoplay muted loop playsinline></video>` : ''}
+            ${cs.cover
+              ? `<img src="${cs.cover}" alt="${cs.title}">`
+              : cs.video
+                ? `<video src="${cs.video}" autoplay muted loop playsinline></video>`
+                : ''}
           </div>
         </div>
 
