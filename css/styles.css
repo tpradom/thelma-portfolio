@@ -1269,4 +1269,13 @@ footer {
     font-size: clamp(112px, 9vw, 160px);
     max-width: 16ch;
   }
+
+  /* center the work intro (title + body) */
+  .work-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .work-desc { max-width: 52ch; }
 }
