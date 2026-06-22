@@ -1262,9 +1262,9 @@ footer {
   .cta-banner-inner { padding: 32px 20px; }
 }
 
-/* xl — let the hero grow wider on large screens (Apple-style) */
+/* xl — let all content grow wider on large screens (Apple-style) */
 @media (min-width: 1440px) {
-  .hero-content { max-width: 1600px; }
+  :root { --max: 1600px; }
   .hero-heading {
     font-size: clamp(112px, 9vw, 160px);
     max-width: 16ch;
