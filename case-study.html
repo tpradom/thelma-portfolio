@@ -48,15 +48,19 @@
         duration: '9 months',
         coverGradient: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
         cover: 'assets/BetAnything/cover.jpg',
-        auditImages: {
-          desktop: 'assets/BetAnything/Competive Audit/Findings Desktop.png',
-          mobile: 'assets/BetAnything/Competive Audit/findings Mobile.png'
-        },
+        researchImages: [
+          'assets/BetAnything/research/Findings Desktop.png',
+          'assets/BetAnything/research/findings Mobile.png',
+          'assets/BetAnything/research/affinity diagram.webp',
+          'assets/BetAnything/research/BetAnything - Content Strategy.png',
+          'assets/BetAnything/research/Site Map.png',
+          'assets/BetAnything/research/Teamwork.webp'
+        ],
         beforeAfterImages: {
-          before: 'assets/BetAnything/before and after/before.png',
-          after: 'assets/BetAnything/before and after/after.png'
+          before: 'assets/BetAnything/before and after/before.jpg',
+          after: 'assets/BetAnything/before and after/after.jpg'
         },
-        designImage: 'assets/BetAnything/Button.webp',
+        designImages: ['assets/BetAnything/Button.webp'],
         sections: [
           {
             label: 'The Challenge',
@@ -159,6 +163,7 @@
         year: '2024',
         role: 'UX/UI Designer',
         coverGradient: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #2563eb 100%)',
+        cover: 'assets/Perhead/perhead.jpg',
         sections: [
           {
             label: 'The Challenge',
@@ -274,6 +279,28 @@
       });
     }
 
+    function initCarousels() {
+      document.querySelectorAll('.cs-carousel').forEach(carousel => {
+        const slides = carousel.querySelectorAll('.cs-carousel-slide');
+        const dots   = carousel.querySelectorAll('.cs-carousel-dot');
+        const prev   = carousel.querySelector('.cs-carousel-prev');
+        const next   = carousel.querySelector('.cs-carousel-next');
+        let current  = 0;
+
+        function goTo(idx) {
+          slides[current].removeAttribute('data-active');
+          dots[current] && dots[current].classList.remove('active');
+          current = (idx + slides.length) % slides.length;
+          slides[current].setAttribute('data-active', 'true');
+          dots[current] && dots[current].classList.add('active');
+        }
+
+        prev && prev.addEventListener('click', () => goTo(current - 1));
+        next && next.addEventListener('click', () => goTo(current + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+      });
+    }
+
     function renderCaseStudy(id) {
       const cs = caseStudies[id];
       if (!cs) {
@@ -315,16 +342,39 @@
               ? `<div class="cs-video-block"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
               : `<div class="cs-image-block">[ ${cs.title} — wireframes ]</div>`;
         } else if (i === 1) {
-          return cs.auditImages
-            ? `<div class="cs-audit-block">
-                <img src="${cs.auditImages.desktop}" class="cs-audit-desktop" alt="Competitive audit desktop findings">
-                <img src="${cs.auditImages.mobile}" class="cs-audit-mobile" alt="Competitive audit mobile findings">
-               </div>`
-            : `<div class="cs-image-block">[ ${cs.title} — design explorations ]</div>`;
+          if (cs.researchImages && cs.researchImages.length > 0) {
+            const slides = cs.researchImages.map((src, idx) =>
+              `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — research ${idx + 1}"></div>`
+            ).join('');
+            const dots = cs.researchImages.length > 1
+              ? `<div class="cs-carousel-dots">${cs.researchImages.map((_, idx) =>
+                  `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
+                ).join('')}</div>`
+              : '';
+            const arrows = cs.researchImages.length > 1
+              ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button>
+                 <button class="cs-carousel-next" aria-label="Next">›</button>`
+              : '';
+            return `<div class="cs-carousel cs-carousel--dark">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
+          }
+          return `<div class="cs-image-block">[ ${cs.title} — design explorations ]</div>`;
         } else if (i === 2) {
-          return cs.designImage
-            ? `<div class="cs-image-block"><img src="${cs.designImage}" alt="${cs.title} — design system"></div>`
-            : `<div class="cs-image-block">[ ${cs.title} — design system ]</div>`;
+          if (cs.designImages && cs.designImages.length > 0) {
+            const slides = cs.designImages.map((src, idx) =>
+              `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — design ${idx + 1}"></div>`
+            ).join('');
+            const dots = cs.designImages.length > 1
+              ? `<div class="cs-carousel-dots">${cs.designImages.map((_, idx) =>
+                  `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
+                ).join('')}</div>`
+              : '';
+            const arrows = cs.designImages.length > 1
+              ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button>
+                 <button class="cs-carousel-next" aria-label="Next">›</button>`
+              : '';
+            return `<div class="cs-carousel">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
+          }
+          return `<div class="cs-image-block">[ ${cs.title} — design system ]</div>`;
         }
         return id === 'betanything' ? `
           <div class="cs-outcome-chart">
@@ -432,10 +482,11 @@
         </div>
       `;
 
-      // trigger reveal + sliders + accordion after render
+      // trigger reveal + sliders + carousels after render
       requestAnimationFrame(() => {
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
         initSliders();
+        initCarousels();
       });
     }
 
