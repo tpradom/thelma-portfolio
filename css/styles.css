@@ -1176,18 +1176,21 @@ footer {
   position: relative;
   width: 100%;
   max-width: 1280px;
-  aspect-ratio: 1280 / 600;
+  height: 900px;
   border-radius: 12px;
   overflow: hidden;
   margin: 40px 0;
   background: #ffffff;
+}
+@media (max-width: 768px) {
+  .cs-carousel { height: auto; aspect-ratio: 1280 / 600; }
 }
 
 .cs-carousel-track { width: 100%; height: 100%; }
 
 .cs-carousel-slide { display: none; width: 100%; height: 100%; }
 .cs-carousel-slide[data-active] { display: block; }
-.cs-carousel-slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cs-carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .cs-carousel-prev,
 .cs-carousel-next {
@@ -1206,10 +1209,13 @@ footer {
   align-items: center;
   justify-content: center;
   color: var(--black);
-  transition: background 0.2s;
+  opacity: 0;
+  transition: background 0.2s, opacity 0.2s;
 }
 .cs-carousel-prev { left: 16px; }
 .cs-carousel-next { right: 16px; }
+.cs-carousel:hover .cs-carousel-prev,
+.cs-carousel:hover .cs-carousel-next { opacity: 1; }
 .cs-carousel-prev:hover, .cs-carousel-next:hover { background: #fff; }
 
 .cs-carousel-dots {
@@ -1235,7 +1241,7 @@ footer {
 .cs-image-block {
   width: 100%;
   max-width: 1280px;
-  aspect-ratio: 1280 / 600;
+  aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, #e8eaf6, #f3e5f5, #e8f5e9);
   border-radius: 12px;
   margin: 40px 0;

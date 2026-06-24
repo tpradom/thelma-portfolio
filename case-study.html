@@ -195,6 +195,17 @@
             body: `Following the redesign, PerHead247 saw a 25% increase in new agent sign-ups — a direct reflection of improved clarity, trust, and conversion across the site.<br><br>Beyond the public-facing site, I also designed the agent admin interface — a dedicated dashboard giving bookmakers full control over their players, lines, and wager management. Currently in development.`
           }
         ],
+        challengeImages: [
+          'assets/Perhead/challenge 1.jpg',
+          'assets/Perhead/challenge 2.jpg'
+        ],
+        researchImages: [
+          'assets/Perhead/design 1.jpg',
+          'assets/Perhead/design 2.jpg'
+        ],
+        designImages: [
+          'assets/Perhead/Screenshot 2026-06-23 at 08.22.20.png'
+        ],
         meta: { Role: 'UX/UI Designer', Duration: '2 weeks', Year: '2025', 'Live site': 'https://perhead247.com' },
         prev: { id: 'procurement-scrum', title: 'Procurement Scrum Board' },
         next: null
@@ -328,11 +339,12 @@
 
       document.title = `${cs.title} — Thelma Prado`;
 
-      const metaItems = Object.entries(cs.meta).map(([k, v]) => `
+      const metaEntries = Object.entries(cs.meta);
+      const metaItems = metaEntries.map(([k, v]) => `
         <div class="cs-meta-item">
           <div class="cs-meta-label">${k}</div>
           <div class="cs-meta-value">${v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
-        </div>`).join('');
+        </div>`).join('') + (metaEntries.length % 2 !== 0 ? '<div class="cs-meta-item"></div>' : '');
 
       const mediaHtmls = cs.sections.map((s, i) => {
         if (i === 0) {
@@ -352,9 +364,22 @@
                 <span class="cs-ba-label-before">Before</span>
                 <span class="cs-ba-label-after">After</span>
                </div>`
-            : cs.video
-              ? `<div class="cs-video-block"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
-              : `<div class="cs-image-block">[ ${cs.title} — wireframes ]</div>`;
+            : cs.challengeImages && cs.challengeImages.length > 0
+              ? (() => {
+                  const slides = cs.challengeImages.map((src, idx) =>
+                    `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — challenge ${idx + 1}"></div>`
+                  ).join('');
+                  const dots = cs.challengeImages.length > 1
+                    ? `<div class="cs-carousel-dots">${cs.challengeImages.map((_, idx) =>
+                        `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
+                      ).join('')}</div>` : '';
+                  const arrows = cs.challengeImages.length > 1
+                    ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button><button class="cs-carousel-next" aria-label="Next">›</button>` : '';
+                  return `<div class="cs-carousel">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
+                })()
+              : cs.video
+                ? `<div class="cs-video-block"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
+                : `<div class="cs-image-block">[ ${cs.title} — wireframes ]</div>`;
         } else if (i === 1) {
           if (cs.researchImages && cs.researchImages.length > 0) {
             const slides = cs.researchImages.map((src, idx) =>
