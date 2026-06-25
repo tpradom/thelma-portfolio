@@ -148,6 +148,47 @@ filterBtns.forEach(btn => {
   rafId = requestAnimationFrame(tick);
 }());
 
+/* ─── Work Carousel ───────────────────────────────── */
+(function () {
+  const carousel = document.getElementById('work-carousel');
+  if (!carousel) return;
+  const slides = carousel.querySelectorAll('.work-slide');
+  const prevBtn = document.getElementById('work-prev');
+  const nextBtn = document.getElementById('work-next');
+  const currentEl = document.getElementById('work-current');
+  let current = 0;
+
+  function scrollTo(idx) {
+    current = Math.max(0, Math.min(slides.length - 1, idx));
+    slides[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    if (currentEl) currentEl.textContent = current + 1;
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => scrollTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => scrollTo(current + 1));
+
+  // drag-to-scroll
+  let isDown = false, startX, scrollLeft;
+  carousel.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - carousel.offsetLeft; scrollLeft = carousel.scrollLeft;
+  });
+  carousel.addEventListener('mouseleave', () => isDown = false);
+  carousel.addEventListener('mouseup', () => isDown = false);
+  carousel.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+
+  // sync counter on scroll
+  carousel.addEventListener('scroll', () => {
+    const slideW = slides[0].offsetWidth + 20;
+    const idx = Math.round(carousel.scrollLeft / slideW);
+    if (idx !== current) { current = idx; if (currentEl) currentEl.textContent = current + 1; }
+  }, { passive: true });
+}());
+
 /* ─── Smooth anchor links ─────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
