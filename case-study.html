@@ -19,7 +19,6 @@
         Thelma Prado
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="index.html#work">Work</a></li>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
@@ -346,6 +345,12 @@
           <div class="cs-meta-value">${v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
         </div>`).join('') + (metaEntries.length % 2 !== 0 ? '<div class="cs-meta-item"></div>' : '');
 
+      function imageStack(images, altPrefix) {
+        return `<div class="cs-image-stack">${images.map((src, idx) =>
+          `<img src="${src}" alt="${altPrefix} ${idx + 1}" loading="lazy">`
+        ).join('')}</div>`;
+      }
+
       const mediaHtmls = cs.sections.map((s, i) => {
         if (i === 0) {
           return cs.beforeAfterImages
@@ -365,55 +370,18 @@
                 <span class="cs-ba-label-after">After</span>
                </div>`
             : cs.challengeImages && cs.challengeImages.length > 0
-              ? (() => {
-                  const slides = cs.challengeImages.map((src, idx) =>
-                    `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — challenge ${idx + 1}"></div>`
-                  ).join('');
-                  const dots = cs.challengeImages.length > 1
-                    ? `<div class="cs-carousel-dots">${cs.challengeImages.map((_, idx) =>
-                        `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
-                      ).join('')}</div>` : '';
-                  const arrows = cs.challengeImages.length > 1
-                    ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button><button class="cs-carousel-next" aria-label="Next">›</button>` : '';
-                  return `<div class="cs-carousel">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
-                })()
+              ? imageStack(cs.challengeImages, `${cs.title} — challenge`)
               : cs.video
                 ? `<div class="cs-video-block"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
-                : `<div class="cs-image-block">[ ${cs.title} — wireframes ]</div>`;
+                : '';
         } else if (i === 1) {
-          if (cs.researchImages && cs.researchImages.length > 0) {
-            const slides = cs.researchImages.map((src, idx) =>
-              `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — research ${idx + 1}"></div>`
-            ).join('');
-            const dots = cs.researchImages.length > 1
-              ? `<div class="cs-carousel-dots">${cs.researchImages.map((_, idx) =>
-                  `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
-                ).join('')}</div>`
-              : '';
-            const arrows = cs.researchImages.length > 1
-              ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button>
-                 <button class="cs-carousel-next" aria-label="Next">›</button>`
-              : '';
-            return `<div class="cs-carousel cs-carousel--dark">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
-          }
-          return `<div class="cs-image-block">[ ${cs.title} — design explorations ]</div>`;
+          return cs.researchImages && cs.researchImages.length > 0
+            ? imageStack(cs.researchImages, `${cs.title} — research`)
+            : '';
         } else if (i === 2) {
-          if (cs.designImages && cs.designImages.length > 0) {
-            const slides = cs.designImages.map((src, idx) =>
-              `<div class="cs-carousel-slide"${idx === 0 ? ' data-active="true"' : ''}><img src="${src}" alt="${cs.title} — design ${idx + 1}"></div>`
-            ).join('');
-            const dots = cs.designImages.length > 1
-              ? `<div class="cs-carousel-dots">${cs.designImages.map((_, idx) =>
-                  `<button class="cs-carousel-dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></button>`
-                ).join('')}</div>`
-              : '';
-            const arrows = cs.designImages.length > 1
-              ? `<button class="cs-carousel-prev" aria-label="Previous">‹</button>
-                 <button class="cs-carousel-next" aria-label="Next">›</button>`
-              : '';
-            return `<div class="cs-carousel">${arrows}<div class="cs-carousel-track">${slides}</div>${dots}</div>`;
-          }
-          return `<div class="cs-image-block">[ ${cs.title} — design system ]</div>`;
+          return cs.designImages && cs.designImages.length > 0
+            ? imageStack(cs.designImages, `${cs.title} — design`)
+            : '';
         }
         return id === 'betanything' ? `
           <div class="cs-outcome-chart">
