@@ -212,7 +212,7 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
 }
 
 .hero-heading {
-  font-size: clamp(36px, 6vw, 112px);
+  font-size: clamp(36px, 5vw, 76px);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.04em;
@@ -1523,7 +1523,7 @@ footer {
 @media (min-width: 1440px) {
   :root { --max: 1600px; }
   .hero-heading {
-    font-size: clamp(112px, 9vw, 200px);
+    font-size: clamp(112px, 9vw, 160px);
     max-width: 16ch;
   }
 
