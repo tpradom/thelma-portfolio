@@ -900,7 +900,7 @@ footer {
 
 /* ─── Case Study Page ─────────────────────────────── */
 .cs-hero {
-  padding: 120px var(--pad) 80px;
+  padding: 80px var(--pad) 80px;
   max-width: var(--max);
   margin: 0 auto;
 }
