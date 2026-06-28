@@ -114,6 +114,16 @@
         role: 'UX/UI Designer',
         coverGradient: 'linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #38bdf8 100%)',
         cover: 'assets/N3/N3 Cover.jpg',
+        researchImages: [
+          'assets/N3/n3_research_findings_gray.svg',
+          'assets/N3/n3_heuristics_findings.svg',
+          'assets/N3/n3_user_journey.svg'
+        ],
+        designImages: [
+          'assets/N3/1.jpg',
+          'assets/N3/2.jpg',
+          'assets/N3/3.jpg'
+        ],
         sections: [
           {
             label: 'The Challenge',
@@ -136,7 +146,7 @@
             body: `The redesigned interface gave call center agents a clearer, faster, and more confident way to prepare for every call. By surfacing AI-assisted customer insights at the right moment, the tool reduced cognitive load and supported agents in delivering more personalized service — turning a fragmented experience into a unified, intuitive workflow.`
           }
         ],
-        meta: { Role: 'UX/UI Designer', Company: 'Accenture', Year: '2023' },
+        meta: { Role: 'UX/UI Designer', Company: 'Accenture', Year: '2023', Prototype: 'Research presentation::https://www.figma.com/design/iON8R8R4OL7N8Av57y28KD/N3-One-Glass?node-id=0-1&t=ENpqbVeTkHilWZLS-1' },
         prev: { id: 'betanything', title: 'BetAnything' },
         next: { id: 'procurement-scrum', title: 'Procurement Scrum Board' }
       },
@@ -348,7 +358,7 @@
       const metaItems = metaEntries.map(([k, v]) => `
         <div class="cs-meta-item">
           <div class="cs-meta-label">${k}</div>
-          <div class="cs-meta-value">${v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
+          <div class="cs-meta-value">${v.includes('::') ? `<a href="${v.split('::')[1]}" target="_blank" rel="noopener" class="cs-meta-link">${v.split('::')[0]} ↗</a>` : v.startsWith('http') ? `<a href="${v}" target="_blank" rel="noopener" class="cs-meta-link">${v.replace(/^https?:\/\//, '')} ↗</a>` : v}</div>
         </div>`).join('') + (metaEntries.length % 2 !== 0 ? '<div class="cs-meta-item"></div>' : '');
 
       function imageStack(images, altPrefix) {
