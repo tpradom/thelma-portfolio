@@ -513,6 +513,61 @@
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
         initSliders();
         initCarousels();
+        initLightbox();
+      });
+    }
+
+    function initLightbox() {
+      document.querySelectorAll('.cs-image-stack img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+          const overlay = document.createElement('div');
+          overlay.id = 'lightbox';
+          overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}"><div class="lb-hint">Scroll to zoom · Drag to pan</div>`;
+          document.body.appendChild(overlay);
+          requestAnimationFrame(() => overlay.classList.add('active'));
+
+          const lbImg = overlay.querySelector('img');
+          let scale = 1, tx = 0, ty = 0;
+          let dragging = false, startX, startY, lastTx, lastTy;
+
+          function applyTransform() {
+            lbImg.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+            lbImg.style.cursor = scale > 1 ? 'grab' : 'default';
+          }
+
+          overlay.addEventListener('wheel', e => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -0.15 : 0.15;
+            scale = Math.min(Math.max(1, scale + delta), 5);
+            if (scale === 1) { tx = 0; ty = 0; }
+            applyTransform();
+          }, { passive: false });
+
+          lbImg.addEventListener('mousedown', e => {
+            if (scale <= 1) return;
+            dragging = true; startX = e.clientX - tx; startY = e.clientY - ty;
+            lbImg.style.cursor = 'grabbing';
+            e.stopPropagation();
+          });
+          window.addEventListener('mousemove', e => {
+            if (!dragging) return;
+            tx = e.clientX - startX; ty = e.clientY - startY;
+            applyTransform();
+          });
+          window.addEventListener('mouseup', () => {
+            if (dragging) { dragging = false; lbImg.style.cursor = scale > 1 ? 'grab' : 'default'; }
+          });
+
+          const close = () => {
+            overlay.classList.remove('active');
+            overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+          };
+          overlay.addEventListener('click', e => { if (!dragging && e.target === overlay) close(); });
+          document.addEventListener('keydown', function esc(e) {
+            if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); }
+          });
+        });
       });
     }
 
