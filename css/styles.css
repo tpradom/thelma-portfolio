@@ -146,7 +146,7 @@ body.dark .cs-carousel { background: #1D1D1D; }
 
 /* ─── Layout ──────────────────────────────────────── */
 main { padding-top: 60px; }
-section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
+section { max-width: var(--max); margin: 0 auto; padding: 120px var(--pad); }
 
 /* ─── Hero ────────────────────────────────────────── */
 #hero {
@@ -290,7 +290,7 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
 }
 
 /* ─── Work ────────────────────────────────────────── */
-#work { padding-bottom: 80px; }
+#work { padding-bottom: 120px; }
 
 .section-label {
   display: flex;
@@ -579,7 +579,7 @@ section { max-width: var(--max); margin: 0 auto; padding: 100px var(--pad); }
 .work-arrow svg { width: 16px; height: 16px; }
 
 /* ─── About ───────────────────────────────────────── */
-#about { padding-top: 80px; }
+#about { padding-top: 120px; }
 
 .about-inner {
   display: grid;
