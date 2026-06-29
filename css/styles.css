@@ -54,7 +54,9 @@ nav {
 nav.scrolled { border-color: var(--border); }
 
 .nav-inner {
+  max-width: var(--max);
   width: 100%;
+  margin: 0 auto;
   padding: 0 var(--pad);
   height: 60px;
   display: flex;
