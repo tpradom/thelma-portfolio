@@ -146,6 +146,7 @@
             body: `The redesigned interface gave call center agents a clearer, faster, and more confident way to prepare for every call. By surfacing AI-assisted customer insights at the right moment, the tool reduced cognitive load and supported agents in delivering more personalized service — turning a fragmented experience into a unified, intuitive workflow.`
           }
         ],
+        outcomeVideo: 'assets/N3/video-n3.mov',
         meta: { Role: 'UX/UI Designer', Company: 'Accenture', Year: '2023', Prototype: 'Research presentation::https://www.figma.com/design/iON8R8R4OL7N8Av57y28KD/N3-One-Glass?node-id=0-1&t=ENpqbVeTkHilWZLS-1' },
         prev: { id: 'betanything', title: 'BetAnything' },
         next: { id: 'procurement-scrum', title: 'Procurement Scrum Board' }
@@ -398,6 +399,11 @@
           return cs.designImages && cs.designImages.length > 0
             ? imageStack(cs.designImages, `${cs.title} — design`)
             : '';
+        }
+        if (cs.outcomeVideo) {
+          return `<div class="cs-video-block" style="margin-bottom:32px">
+            <video src="${cs.outcomeVideo}" autoplay muted loop playsinline style="width:100%;border-radius:16px;display:block;"></video>
+          </div>`;
         }
         return id === 'betanything' ? `
           <div class="cs-video-block" style="margin-bottom:32px">
