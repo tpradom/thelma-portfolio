@@ -389,9 +389,7 @@
                </div>`
             : cs.challengeImages && cs.challengeImages.length > 0
               ? imageStack(cs.challengeImages, `${cs.title} — challenge`)
-              : cs.video
-                ? `<div class="cs-video-block"><video src="${cs.video}" autoplay muted loop playsinline></video></div>`
-                : '';
+              : '';
         } else if (i === 1) {
           return cs.researchImages && cs.researchImages.length > 0
             ? imageStack(cs.researchImages, `${cs.title} — research`)
