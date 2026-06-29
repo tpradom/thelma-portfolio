@@ -1539,7 +1539,7 @@ footer {
   .nav-links a { font-size: 12px; }
 
   .hero-content { padding-top: 60px; padding-bottom: 40px; }
-  .hero-heading { font-size: 28px; margin-bottom: 24px; }
+  .hero-heading { margin-bottom: 24px; }
   .hero-stats { grid-template-columns: 1fr 1fr; row-gap: 12px; column-gap: 16px; padding-top: 20px; }
 
   .process-grid { grid-template-columns: 1fr; }
