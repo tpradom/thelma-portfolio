@@ -1,0 +1,128 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 7.0-c000 1.000000, 0000/00/00-00:00:00">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="9D5F6896-2BF0-527D-B0B0-8DBC5C6E9CF4"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="15.0"
+   crs:ProcessVersion="11.0"
+   crs:ConvertToGrayscale="False"
+   crs:Contrast2012="+4"
+   crs:Highlights2012="-30"
+   crs:Shadows2012="+12"
+   crs:Whites2012="-8"
+   crs:Blacks2012="0"
+   crs:Texture="+8"
+   crs:Clarity2012="+4"
+   crs:Dehaze="+2"
+   crs:Vibrance="+4"
+   crs:Saturation="+4"
+   crs:HueAdjustmentRed="0"
+   crs:HueAdjustmentOrange="-5"
+   crs:HueAdjustmentYellow="-10"
+   crs:HueAdjustmentGreen="-30"
+   crs:HueAdjustmentAqua="-20"
+   crs:HueAdjustmentBlue="-10"
+   crs:HueAdjustmentPurple="0"
+   crs:HueAdjustmentMagenta="0"
+   crs:SaturationAdjustmentRed="-5"
+   crs:SaturationAdjustmentOrange="+5"
+   crs:SaturationAdjustmentYellow="+15"
+   crs:SaturationAdjustmentGreen="+20"
+   crs:SaturationAdjustmentAqua="-20"
+   crs:SaturationAdjustmentBlue="-5"
+   crs:SaturationAdjustmentPurple="0"
+   crs:SaturationAdjustmentMagenta="0"
+   crs:LuminanceAdjustmentRed="0"
+   crs:LuminanceAdjustmentOrange="+5"
+   crs:LuminanceAdjustmentYellow="0"
+   crs:LuminanceAdjustmentGreen="-20"
+   crs:LuminanceAdjustmentAqua="0"
+   crs:LuminanceAdjustmentBlue="-20"
+   crs:LuminanceAdjustmentPurple="0"
+   crs:LuminanceAdjustmentMagenta="0"
+   crs:SplitToningShadowHue="95"
+   crs:SplitToningShadowSaturation="14"
+   crs:SplitToningHighlightHue="55"
+   crs:SplitToningHighlightSaturation="10"
+   crs:SplitToningBalance="0"
+   crs:ColorGradeMidtoneHue="0"
+   crs:ColorGradeMidtoneSat="0"
+   crs:ColorGradeBlending="60"
+   crs:GrainAmount="35"
+   crs:GrainSize="30"
+   crs:GrainFrequency="55"
+   crs:ToneCurveName2012="Custom"
+   crs:HasSettings="True">
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+     <rdf:li>0, 42</rdf:li>
+     <rdf:li>40, 56</rdf:li>
+     <rdf:li>64, 76</rdf:li>
+     <rdf:li>128, 130</rdf:li>
+     <rdf:li>192, 196</rdf:li>
+     <rdf:li>224, 214</rdf:li>
+     <rdf:li>255, 226</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+   <crs:ToneCurvePV2012Red>
+    <rdf:Seq>
+     <rdf:li>0, 6</rdf:li>
+     <rdf:li>128, 130</rdf:li>
+     <rdf:li>255, 250</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Red>
+   <crs:ToneCurvePV2012Green>
+    <rdf:Seq>
+     <rdf:li>0, 2</rdf:li>
+     <rdf:li>128, 130</rdf:li>
+     <rdf:li>255, 255</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Green>
+   <crs:ToneCurvePV2012Blue>
+    <rdf:Seq>
+     <rdf:li>0, 0</rdf:li>
+     <rdf:li>48, 36</rdf:li>
+     <rdf:li>128, 118</rdf:li>
+     <rdf:li>255, 242</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012Blue>
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Alpine 03 Moss</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:ShortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Alpine 03 Moss</rdf:li>
+    </rdf:Alt>
+   </crs:ShortName>
+   <crs:SortName>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Alpine 03 Moss</rdf:li>
+    </rdf:Alt>
+   </crs:SortName>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Alpine Pack</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Earthy, heavy fade with rich mossy greens, warm browns and golden highlights.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
